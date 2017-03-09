@@ -1,5 +1,5 @@
 {
-  "name": "react-native-ios-network-audio",
+  "name": "react-native-streaming-audio",
   "version": "0.0.9",
   "tags": [
     "react",
@@ -13,7 +13,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/pwbrown/react-native-ios-network-audio.git"
+    "url": "git://github.com/varun-raj/react-native-streaming-audio.git"
   },
   "keywords": [
     "react",
@@ -24,8 +24,8 @@
     "url"
   ],
   "author": {
-    "name": "Philip Brown",
-    "email": "brown.philip1294@yahoo.com"
+    "name": "Varun Raj",
+    "email": "varun@skcript.com"
   },
   "licenses": [
     {
@@ -34,7 +34,7 @@
     }
   ],
   "bugs": {
-    "url": "https://github.com/pwbrown/react-native-ios-network-audio/issues"
+    "url": "https://github.com/varun-raj/react-native-streaming-audio/issues"
   },
   "dependencies": {
     "react-native": "*"
