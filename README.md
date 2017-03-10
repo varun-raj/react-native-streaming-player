@@ -16,8 +16,8 @@ IOS class to add react-native implementation for web audio urls(look at AVPlayer
 
 var songInfo = {
 	name: "Name of the song",
-  artist_name: "Song's band name",
-  artwork: "Song's cover image",
+	artist_name: "Song's band name",
+	artwork: "Song's cover image",
 };
 
 audio.initPlayer("http://your_audio_url_here", songInfo);
