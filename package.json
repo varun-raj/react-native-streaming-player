@@ -1,5 +1,5 @@
 {
-  "name": "react-native-streaming-audio",
+  "name": "react-native-streaming-player",
   "version": "0.0.9",
   "tags": [
     "react",
@@ -9,11 +9,11 @@
     "player",
     "url"
   ],
-  "description": "Audio player implementation for web-based url audio clips using ios standards",
+  "description": "Audio player implementation for streaming URLS with AVFoundation",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/varun-raj/react-native-streaming-audio.git"
+    "url": "git://github.com/varun-raj/react-native-streaming-player.git"
   },
   "keywords": [
     "react",
@@ -34,7 +34,7 @@
     }
   ],
   "bugs": {
-    "url": "https://github.com/varun-raj/react-native-streaming-audio/issues"
+    "url": "https://github.com/varun-raj/react-native-streaming-player/issues"
   },
   "dependencies": {
     "react-native": "*"
