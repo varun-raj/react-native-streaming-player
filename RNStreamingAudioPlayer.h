@@ -3,6 +3,7 @@
 #import <React/RCTBridgeModule.h>
 #import <React/RCTEventEmitter.h>
 
+@import MediaPlayer;
 @import AVFoundation;
 
 @interface RNStreamingAudioPlayer : RCTEventEmitter <RCTBridgeModule>
