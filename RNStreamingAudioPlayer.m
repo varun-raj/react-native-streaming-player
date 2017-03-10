@@ -9,7 +9,7 @@
 
 RCT_EXPORT_MODULE();
 
-RCT_EXPORT_METHOD(initWithURL:(NSString *)url songInfo:(NSDictionary *)songInfo){
+RCT_EXPORT_METHOD(initPlayer:(NSString *)url songInfo:(NSDictionary *)songInfo){
   if(!([url length]>0)) return;
   
   NSString *name = [RCTConvert NSString:songInfo[@"name"]];

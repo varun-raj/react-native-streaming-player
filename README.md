@@ -6,14 +6,21 @@ IOS class to add react-native implementation for web audio urls(look at AVPlayer
 <ol>
 	<li>Run '<a href="https://www.npmjs.com/package/react-native-streaming-player">npm install react-native-streaming-player --save</a>'</li>
 	<li>Add .h and .m files to "your_project_name" folder in XCode and restart application</li>
-	<li>var audio = require('react-native').NativeModules.RNAudioPlayerURL;</li>
+	<li>var audio = require('react-native').NativeModules.RNStreamingAudioPlayer;</li>
 </ol>
 
 ## Basic usage
 
 ```javascript
-//To initialize the audio clip
-audio.initWithURL("http://your_audio_url_here");
+//To initialize the audio clip with meta data
+
+var songInfo = {
+	name: "Name of the song",
+  artist_name: "Song's band name",
+  artwork: "Song's cover image",
+};
+
+audio.initPlayer("http://your_audio_url_here", songInfo);
 
 //To retrieve the length of the clip in seconds as a float
 audio.getDuration((duration) => {
@@ -66,6 +73,4 @@ var subscription = NativeAppEventEmitter.addListener(
 	'goToNext',
 	(trigger) => {console.log(trigger.event)};
 );
-
-
 ```
