@@ -4,7 +4,7 @@ IOS class to add react-native implementation for web audio urls(look at AVPlayer
 
 ## Add it to your project
 <ol>
-	<li>Run '<a href="https://www.npmjs.com/package/react-native-streaming-player">npm install react-native-streaming-player --save</a>'</li>
+	<li>Run `npm install react-native-streaming-player --save`</li>
 	<li>Add .h and .m files to "your_project_name" folder in XCode and restart application</li>
 	<li>var audio = require('react-native').NativeModules.RNStreamingAudioPlayer;</li>
 </ol>
