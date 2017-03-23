@@ -16,9 +16,14 @@ RCT_EXPORT_METHOD(initPlayer:(NSString *)url songInfo:(NSDictionary *)songInfo){
   NSString *artist_name = [RCTConvert NSString:songInfo[@"artist_name"]];
 //  NSString *artwork = [RCTConvert NSString:songInfo[@"artwork"]];
 
+  [self.audioPlayer removeObserver:self forKeyPath:@"status" context:nil];
+
   NSURL *soundUrl = [[NSURL alloc] initWithString:url];
   self.audioItem = [AVPlayerItem playerItemWithURL:soundUrl];
   self.audioPlayer = [AVPlayer playerWithPlayerItem:self.audioItem];
+  
+  [self.audioPlayer addObserver:self forKeyPath:@"status" options:0 context:nil];
+
   
   [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
   [[AVAudioSession sharedInstance] setActive:YES error:nil];
@@ -67,6 +72,8 @@ RCT_EXPORT_METHOD(initPlayer:(NSString *)url songInfo:(NSDictionary *)songInfo){
   
 }
 - (void)playerItemStalled:(NSNotification *)notification{
+  [self sendEventWithName:@"Buffering" body:@{@"event": @"buffering"}];
+
   [self.audioPlayer play];
 }
 
@@ -80,6 +87,17 @@ RCT_EXPORT_METHOD(initPlayer:(NSString *)url songInfo:(NSDictionary *)songInfo){
 
 -(void)nextTapped:(MPRemoteCommandEvent *)event{
   [self sendEventWithName:@"goToNext" body:@{@"event": @"nextSong"}];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
+                        change:(NSDictionary *)change context:(void *)context {
+  if (object == self.audioPlayer && [keyPath isEqualToString:@"status"]) {
+    if (self.audioPlayer.status == AVPlayerStatusReadyToPlay) {
+      [self sendEventWithName:@"ReadyToPlay" body:@{@"event": @"ReadyToPlay"}];
+    } else if (self.audioPlayer.status == AVPlayerStatusFailed) {
+      // something went wrong. player.error should contain some information
+    }
+  }
 }
 
 -(void)previousTapped:(MPRemoteCommandEvent *)event{
@@ -103,7 +121,7 @@ RCT_EXPORT_METHOD(getCurrentTime:(RCTResponseSenderBlock)callback){
 
 - (NSArray<NSString *> *)supportedEvents
 {
-  NSArray *events = @[@"AudioEnded", @"goToPrevious", @"goToNext"];
+  NSArray *events = @[@"AudioEnded", @"goToPrevious", @"goToNext", @"Buffering", @"ReadyToPlay"];
   return events;
 }
 
