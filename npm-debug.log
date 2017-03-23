@@ -13,24 +13,24 @@
 7 silly cache add   rawSpec: '.',
 7 silly cache add   spec: '/Users/varun/Projects/react-native-ios-network-audio',
 7 silly cache add   type: 'directory' }
-8 verbose addLocalDirectory /Users/varun/.npm/react-native-streaming-player/0.0.9/package.tgz not in flight; packing
+8 verbose addLocalDirectory /Users/varun/.npm/react-native-streaming-player/1.0.0/package.tgz not in flight; packing
 9 verbose correctMkdir /Users/varun/.npm correctMkdir not in flight; initializing
-10 info lifecycle react-native-streaming-player@0.0.9~prepublish: react-native-streaming-player@0.0.9
-11 silly lifecycle react-native-streaming-player@0.0.9~prepublish: no script for prepublish, continuing
-12 info lifecycle react-native-streaming-player@0.0.9~prepare: react-native-streaming-player@0.0.9
-13 silly lifecycle react-native-streaming-player@0.0.9~prepare: no script for prepare, continuing
-14 verbose tar pack [ '/Users/varun/.npm/react-native-streaming-player/0.0.9/package.tgz',
+10 info lifecycle react-native-streaming-player@1.0.0~prepublish: react-native-streaming-player@1.0.0
+11 silly lifecycle react-native-streaming-player@1.0.0~prepublish: no script for prepublish, continuing
+12 info lifecycle react-native-streaming-player@1.0.0~prepare: react-native-streaming-player@1.0.0
+13 silly lifecycle react-native-streaming-player@1.0.0~prepare: no script for prepare, continuing
+14 verbose tar pack [ '/Users/varun/.npm/react-native-streaming-player/1.0.0/package.tgz',
 14 verbose tar pack   '/Users/varun/Projects/react-native-ios-network-audio' ]
-15 verbose tarball /Users/varun/.npm/react-native-streaming-player/0.0.9/package.tgz
+15 verbose tarball /Users/varun/.npm/react-native-streaming-player/1.0.0/package.tgz
 16 verbose folder /Users/varun/Projects/react-native-ios-network-audio
-17 verbose addLocalTarball adding from inside cache /Users/varun/.npm/react-native-streaming-player/0.0.9/package.tgz
+17 verbose addLocalTarball adding from inside cache /Users/varun/.npm/react-native-streaming-player/1.0.0/package.tgz
 18 verbose correctMkdir /Users/varun/.npm correctMkdir not in flight; initializing
-19 silly cache afterAdd react-native-streaming-player@0.0.9
-20 verbose afterAdd /Users/varun/.npm/react-native-streaming-player/0.0.9/package/package.json not in flight; writing
+19 silly cache afterAdd react-native-streaming-player@1.0.0
+20 verbose afterAdd /Users/varun/.npm/react-native-streaming-player/1.0.0/package/package.json not in flight; writing
 21 verbose correctMkdir /Users/varun/.npm correctMkdir not in flight; initializing
-22 verbose afterAdd /Users/varun/.npm/react-native-streaming-player/0.0.9/package/package.json written
+22 verbose afterAdd /Users/varun/.npm/react-native-streaming-player/1.0.0/package/package.json written
 23 silly publish { name: 'react-native-streaming-player',
-23 silly publish   version: '0.0.9',
+23 silly publish   version: '1.0.0',
 23 silly publish   tags: [ 'react', 'native', 'ios', 'audio', 'player', 'url' ],
 23 silly publish   description: 'Audio player implementation for streaming URLS with AVFoundation',
 23 silly publish   main: 'index.js',
@@ -42,16 +42,16 @@
 23 silly publish   licenses: [ { type: 'MIT', url: 'http://www.opensource.org/licenses/MIT' } ],
 23 silly publish   bugs: { url: 'https://github.com/varun-raj/react-native-streaming-player/issues' },
 23 silly publish   dependencies: { 'react-native': '*' },
-23 silly publish   readme: '# react-native-streaming-player\n\nIOS class to add react-native implementation for web audio urls(look at AVPlayer documentation for audio compatibility). Tested using mp3 urls.\n\n## Add it to your project\n<ol>\n\t<li>Run \'<a href="https://www.npmjs.com/package/react-native-streaming-player">npm install react-native-streaming-player --save</a>\'</li>\n\t<li>Add .h and .m files to "your_project_name" folder in XCode and restart application</li>\n\t<li>var audio = require(\'react-native\').NativeModules.RNStreamingAudioPlayer;</li>\n</ol>\n\n## Basic usage\n\n```javascript\n//To initialize the audio clip with meta data\n\nvar songInfo = {\n\tname: "Name of the song",\n  artist_name: "Song\'s band name",\n  artwork: "Song\'s cover image",\n};\n\naudio.initPlayer("http://your_audio_url_here", songInfo);\n\n//To retrieve the length of the clip in seconds as a float\naudio.getDuration((duration) => {\n\t//do what you need with duration variable\n\t//***Example\n\tvar minutes = Math.floor(duration/60);\n\tvar seconds = Math.ceil((duration/60 - minutes) * 60);\n\tthis.setState({minutes: minutes, seconds: seconds, totalSeconds: duration});\n});\n\n//To play audio clip\naudio.play();\n\n//To pause audio clip\naudio.pause();\n\n//To set volume of the player\naudio.setVolume(0.3);\n\n//To seek to a specific time in seconds\naudio.seekToTime(time_in_seconds);\n```\n\n## New Additions\n<ol>\n<li>Audio will automatically set time to zero once it has reached the end</li>\n<li>New Function to seek to a certain time in the audio clip</li>\n</ol>\n\n\n```javascript\n// Import \nvar { NativeEventEmitter } = require(\'react-native\');\nconst audioEvent = new NativeEventEmitter(NativeModules.RNStreamingAudioPlayer);\n\n//Listen for audio end\nvar subscription = NativeAppEventEmitter.addListener(\n\t\'AudioEnded\',\n\t(trigger) => {console.log(trigger.event)};\n);\n\n//Listen for previous song action from Media center\nvar subscription = NativeAppEventEmitter.addListener(\n\t\'goToPrevious\',\n\t(trigger) => {console.log(trigger.event)};\n);\n\n//Listen for next song action from Media center\nvar subscription = NativeAppEventEmitter.addListener(\n\t\'goToNext\',\n\t(trigger) => {console.log(trigger.event)};\n);\n```\n',
+23 silly publish   readme: '# react-native-streaming-player\n\nIOS class to add react-native implementation for web audio urls(look at AVPlayer documentation for audio compatibility). Tested using mp3 urls.\n\n## Add it to your project\n<ol>\n\t<li>Run `npm install react-native-streaming-player --save`</li>\n\t<li>Add .h and .m files to "your_project_name" folder in XCode and restart application</li>\n\t<li>var audio = require(\'react-native\').NativeModules.RNStreamingAudioPlayer;</li>\n</ol>\n\n## Basic usage\n\n```javascript\n//To initialize the audio clip with meta data\n\nvar songInfo = {\n\tname: "Name of the song",\n\tartist_name: "Song\'s band name",\n\tartwork: "Song\'s cover image",\n};\n\naudio.initPlayer("http://your_audio_url_here", songInfo);\n\n//To retrieve the length of the clip in seconds as a float\naudio.getDuration((duration) => {\n\t//do what you need with duration variable\n\t//***Example\n\tvar minutes = Math.floor(duration/60);\n\tvar seconds = Math.ceil((duration/60 - minutes) * 60);\n\tthis.setState({minutes: minutes, seconds: seconds, totalSeconds: duration});\n});\n\n//To play audio clip\naudio.play();\n\n//To pause audio clip\naudio.pause();\n\n//To set volume of the player\naudio.setVolume(0.3);\n\n//To seek to a specific time in seconds\naudio.seekToTime(time_in_seconds);\n```\n\n## New Additions\n<ol>\n<li>Audio will automatically set time to zero once it has reached the end</li>\n<li>New Function to seek to a certain time in the audio clip</li>\n</ol>\n\n\n```javascript\n// Import \nvar { NativeEventEmitter } = require(\'react-native\');\nconst audioEvent = new NativeEventEmitter(NativeModules.RNStreamingAudioPlayer);\n\n//Listen for audio end\nvar subscription = NativeAppEventEmitter.addListener(\n\t\'AudioEnded\',\n\t(trigger) => {console.log(trigger.event)};\n);\n\n//Listen for previous song action from Media center\nvar subscription = NativeAppEventEmitter.addListener(\n\t\'goToPrevious\',\n\t(trigger) => {console.log(trigger.event)};\n);\n\n//Listen for next song action from Media center\nvar subscription = NativeAppEventEmitter.addListener(\n\t\'goToNext\',\n\t(trigger) => {console.log(trigger.event)};\n);\n```\n',
 23 silly publish   readmeFilename: 'README.md',
-23 silly publish   gitHead: 'd1510c4856f2c027efba3878889e4e9dc96325ad',
+23 silly publish   gitHead: 'ea5d543a60db8092bfe5b51641b00d981ec8f51c',
 23 silly publish   homepage: 'https://github.com/varun-raj/react-native-streaming-player#readme',
-23 silly publish   _id: 'react-native-streaming-player@0.0.9',
+23 silly publish   _id: 'react-native-streaming-player@1.0.0',
 23 silly publish   scripts: {},
-23 silly publish   _shasum: '50a3165717473a7356b850c6645f71d467716adf',
+23 silly publish   _shasum: '46b489b185810dded2a7287ea94beb0d5dfe2bbe',
 23 silly publish   _from: '.' }
-24 info lifecycle react-native-streaming-player@0.0.9~prepublishOnly: react-native-streaming-player@0.0.9
-25 silly lifecycle react-native-streaming-player@0.0.9~prepublishOnly: no script for prepublishOnly, continuing
+24 info lifecycle react-native-streaming-player@1.0.0~prepublishOnly: react-native-streaming-player@1.0.0
+25 silly lifecycle react-native-streaming-player@1.0.0~prepublishOnly: no script for prepublishOnly, continuing
 26 verbose getPublishConfig undefined
 27 silly mapToRegistry name react-native-streaming-player
 28 silly mapToRegistry using default registry
@@ -66,29 +66,29 @@
 30 silly mapToRegistry   type: 'tag' }
 31 silly mapToRegistry uri https://registry.npmjs.org/react-native-streaming-player
 32 verbose publish registryBase https://registry.npmjs.org/
-33 silly publish uploading /Users/varun/.npm/react-native-streaming-player/0.0.9/package.tgz
+33 silly publish uploading /Users/varun/.npm/react-native-streaming-player/1.0.0/package.tgz
 34 verbose request uri https://registry.npmjs.org/react-native-streaming-player
 35 verbose request sending authorization for write operation
-36 info attempt registry request try #1 at 1:09:07 PM
+36 info attempt registry request try #1 at 1:15:46 PM
 37 verbose request using bearer token for auth
-38 verbose request id 0b9ef9328886953d
+38 verbose request id a73baf546f3d5d59
 39 http request PUT https://registry.npmjs.org/react-native-streaming-player
 40 http 403 https://registry.npmjs.org/react-native-streaming-player
 41 verbose headers { 'content-type': 'application/json',
 41 verbose headers   'cache-control': 'max-age=300',
 41 verbose headers   'content-length': '95',
 41 verbose headers   'accept-ranges': 'bytes',
-41 verbose headers   date: 'Fri, 10 Mar 2017 07:39:08 GMT',
+41 verbose headers   date: 'Thu, 23 Mar 2017 07:46:06 GMT',
 41 verbose headers   via: '1.1 varnish',
 41 verbose headers   connection: 'keep-alive',
-41 verbose headers   'x-served-by': 'cache-sin6923-SIN',
+41 verbose headers   'x-served-by': 'cache-ams4121-AMS',
 41 verbose headers   'x-cache': 'MISS',
 41 verbose headers   'x-cache-hits': '0',
-41 verbose headers   'x-timer': 'S1489131547.556643,VS0,VE845',
+41 verbose headers   'x-timer': 'S1490255165.245540,VS0,VE1203',
 41 verbose headers   vary: 'Accept-Encoding' }
 42 verbose request invalidating /Users/varun/.npm/registry.npmjs.org/react-native-streaming-player on PUT
 43 error publish Failed PUT 403
-44 verbose stack Error: "You cannot publish over the previously published version 0.0.9." : react-native-streaming-player
+44 verbose stack Error: "You cannot publish over the previously published version 1.0.0." : react-native-streaming-player
 44 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:304:12)
 44 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:292:14)
 44 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:212:14)
@@ -107,7 +107,7 @@
 50 error node v6.9.2
 51 error npm  v4.1.2
 52 error code E403
-53 error "You cannot publish over the previously published version 0.0.9." : react-native-streaming-player
+53 error "You cannot publish over the previously published version 1.0.0." : react-native-streaming-player
 54 error If you need help, you may report this error at:
 54 error     <https://github.com/npm/npm/issues>
 55 verbose exit [ 1, true ]
